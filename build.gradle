@@ -1,0 +1,28 @@
+plugins {
+    id 'me.champeau.gradle.jmh' version '0.5.0'
+    id 'java'
+}
+
+group 'me.k11i'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.6.2')
+    testImplementation 'org.junit.jupiter:junit-jupiter-api'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params'
+    testImplementation 'org.assertj:assertj-core:3.16.1'
+    testImplementation 'org.apache.commons:commons-math3:3.6.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jmh {
+    timeUnit = 'ms'
+}
